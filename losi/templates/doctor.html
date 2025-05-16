@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block menu %}
+  <a href="{% url 'home' %}" style="color: white;text-decoration: none;"><div>Home</div></a>
+    <a href="{% url 'logout' %}" style="color: white;text-decoration: none;"><div>Logout</div></a>
+{% endblock  %}
+
+
+
+{% block welcome %}
+   <h1>Welcome back {{username}}</h1>
+  <p>You are currently logged in as a doctor</p>
+{% endblock  %}
+{% block losi %}
+  
+{% endblock  %}

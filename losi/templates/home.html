@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block welcome %}
+  <h1>Welcome to the Health Portal</h1>
+    <p>
+      Log in as a patient or doctor to continue.
+    </p>
+
+{% endblock  %}
+    
+{% block losi %}
+  <div class="home-losi">
+<div class="container" >
+ 
+      
+<a href="{% url 'login' %}" class="btn btn-outline-dark mb-4" style="border: 3px solid;">Login</a>
+
+<div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex align-items-center">
+    <p class="mb-0 me-2" style="color: blue;">Don't have an account?</p>
+    <a class="btn btn-outline-dark btn-sm" href="{% url 'signup' %}" style="border: 3px solid;">Signup Now</a>
+  </div>
+</div>
+
+</span>
+  </div>
+</div>
+{% endblock  %}
+
+
+
+
+</body>
+</html>

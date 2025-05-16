@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block welcome %}
+ <h1>Verify Otp</h1> 
+ <p>An Otp is sent to the email </p>
+{% endblock  %}
+{% block losi %}
+  <div class="mt-3 register_container" style="max-width: 500px;margin: 0 auto;">
+  <div class="register_form_bg_img">
+    <div class="register_form">
+<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row" >
+          <div class=" p-0 register_form_col1">
+            <div class="row m-3">
+              <input type="email" class="email p-1" name="email" placeholder="Email" value={{email}} style="background-color: rgb(185, 183, 183);color: black;" disabled>
+            </div>
+            <div class="row m-3">
+              <input type="text" class="username p-1" name="username" placeholder="Username" value={{username}} style="background-color: rgb(185, 183, 183);color: black;" disabled disabled>
+            </div>
+
+            
+
+ 
+
+<div class="row m-3">
+              <input type="tel" class="avatar p-1 mb-1" name="otp" required style="width: 105px;" placeholder="Enter Otp" maxlength="6" pattern="\d{6}" title="Enter a 6-digit OTP" >
+            </div>
+ {% if messages %}
+    {% for message in messages %}
+        <div style="color: red;margin-top: -20px;margin-left: 15px; " class="msg">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+            <div class="row m-3">
+              <button type="submit" style="height: 40px; background-color: #1d2d52; color: white; width: 180px;">Verify Otp</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  setTimeout(function () {
+    const messages = document.querySelectorAll('.msg');
+    messages.forEach(function (msg) {
+      msg.style.transition = "opacity 0.5s ease";
+      msg.style.opacity = 0;
+      setTimeout(() => msg.style.display = 'none', 500);
+    });
+  }, 3000);
+</script>
+{% endblock  %}
