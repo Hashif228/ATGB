@@ -155,7 +155,7 @@ def login(request):
             messages.error(request, "Invalid email")
             return render(request, 'login.html')
 
-        user_auth = authenticate(request, username=user.email, password=password)
+        user_auth = authenticate(request, username=user.username, password=password)
         if user_auth is not None:
             profile = UserProfile.objects.get(user=user_auth)
             if profile.user_type == user_type:
