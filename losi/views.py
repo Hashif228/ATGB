@@ -62,7 +62,7 @@ def signup(request):
                 f'Your OTP is: {otp}',
                 "your@email.com",
                 [data['email']],
-                fail_silently=False,
+                fail_silently=True,
             )
             return redirect('verify_otp')
     return render(request, "signup.html")
