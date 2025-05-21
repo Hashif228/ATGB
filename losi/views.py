@@ -186,8 +186,19 @@ def patient(request):
     profile = UserProfile.objects.get(user=request.user)
     if profile.user_type != 'patient':
         return redirect('doctor')  
-    username=request.user.username
-    return render(request, 'patient.html',{'username':username})
+    context = {
+        'username': request.user.username,
+        'email': request.user.email,
+        'firstname': request.user.first_name,
+        'lastname': request.user.last_name,
+        'address': profile.address_line1,
+        'profile_picture': profile.profile_picture.url if profile.profile_picture else None,
+        'city': profile.city,
+        'state': profile.state,
+        'pincode': profile.pincode,
+        'user':profile.user_type
+    }
+    return render(request, 'patient.html',context)
 
 
 
@@ -198,8 +209,19 @@ def doctor(request):
     profile = UserProfile.objects.get(user=request.user)
     if profile.user_type != 'doctor':
         return redirect('patient')
-    username = request.user.username
-    return render(request, 'doctor.html', {'username': username})
+    context = {
+    'username': request.user.username,
+    'email': request.user.email,
+    'firstname': request.user.first_name,
+    'lastname': request.user.last_name,
+    'address': profile.address_line1,
+    'profile_picture': profile.profile_picture.url if profile.profile_picture else None,
+    'city': profile.city,
+    'state': profile.state,
+    'pincode': profile.pincode,
+    'user':profile.user_type
+}
+    return render(request, 'doctor.html',context)
 
 
 

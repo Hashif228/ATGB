@@ -6,11 +6,52 @@
     <a href="{% url 'logout' %}" style="color: white;text-decoration: none;"><div>Logout</div></a>
 {% endblock  %}
 
-
 {% block welcome %}
-    <h1>Welcome {{username}}</h1>
-  <p>You are currently logged in as a patient</p>
-{% endblock  %}
+  <div class="text-center mt-4">
+    <h1>Welcome {{context.username}}</h1>
+    <p>You are currently logged in as a patient</p>
+  </div>
+{% endblock %}
+{% block pic %}
+ <div class="" style="text-align: center;">
+         <img src="{{ profile_picture }}" alt="Profile Picture" style="width:250px; height:auto; border-radius:10%;">
+</div>
+{% endblock %}
 {% block losi %}
-  
-{% endblock  %}
+
+  <div class="mt-3 register_container" style="max-width: 500px; margin: 0 auto;">
+    
+    <div class="register_form_bg_img">
+      
+      <div class="register_form">
+         
+            <div class="row m-0">
+<p>{{ firstname|capfirst }} {{ lastname|capfirst }}</p>
+            </div>
+            <div class="row m-0">
+              <p>Email:{{email }}</p>
+            </div>
+            <div class="row m-0">
+              <p>User:{{ user|capfirst }}</p>
+            </div>
+             <div class="row m-0">
+              <p>Address:{{ address }}</p>
+            </div>
+             <div class="row m-0">
+              <p>State:{{ state }}</p>
+            </div>
+             <div class="row m-0">
+              <p>City:{{ city }}</p>
+            </div>
+             <div class="row m-0">
+              <p>Pincode:{{ pincode }}</p>
+            </div>
+
+           
+
+        
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
